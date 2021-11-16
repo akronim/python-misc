@@ -35,6 +35,20 @@ update-alternatives --display python3
 ```
 update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 ```
+#### or, better: 
+```
+sudo ln -s /usr/bin/python3 /usr/bin/python
+```
+```
+sudo apt install python-is-python3
+```
+#### same for pip
+```
+sudo apt install -y python3-pip
+```
+```
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
+```
 
 
 ### upgrade from 3.6.9 to 3.9.0
@@ -87,21 +101,7 @@ sudo apt purge -y python2.7-minimal
 sudo ln -s /usr/bin/python2.7 /usr/bin/python
 ```
 
-### You already have Python3 but don't care about the version 
-```
-sudo ln -s /usr/bin/python3 /usr/bin/python
-```
-```
-sudo apt install python-is-python3
-```
 
-### Same for pip
-```
-sudo apt install -y python3-pip
-```
-```
-sudo ln -s /usr/bin/pip3 /usr/bin/pip
-```
 
 
 
