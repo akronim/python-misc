@@ -96,6 +96,9 @@ sudo apt-get install python-is-python3
 ```
 sudo apt purge -y python2.7-minimal
 ```
+```
+sudo apt-get autoremove --purge
+```
 #### remove symbolic link
 ```
 sudo ln -s /usr/bin/python2.7 /usr/bin/python
