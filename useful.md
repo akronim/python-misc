@@ -71,14 +71,20 @@ sudo rm -rf /usr/bin/python3 && sudo ln -s /usr/bin/python3.6 /usr/bin/python3
 apt remove python --simulate
 ```
 ```
-sudo apt remove python2.7.* --simulate
+sudo apt remove python2.7* --simulate
 ```
-
-
-
-### remove python
+### remove 
+#### set aliases
+```
+sudo apt-get install python-is-python3
+```
+#### remve
 ```
 sudo apt purge -y python2.7-minimal
+```
+#### remove symbolic link
+```
+sudo ln -s /usr/bin/python2.7 /usr/bin/python
 ```
 
 ### You already have Python3 but don't care about the version 
