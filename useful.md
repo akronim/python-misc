@@ -78,7 +78,7 @@ sudo apt remove python2.7* --simulate
 ```
 sudo apt-get install python-is-python3
 ```
-#### remve
+#### remove
 ```
 sudo apt purge -y python2.7-minimal
 ```
@@ -88,12 +88,20 @@ sudo ln -s /usr/bin/python2.7 /usr/bin/python
 ```
 
 ### You already have Python3 but don't care about the version 
+```
 sudo ln -s /usr/bin/python3 /usr/bin/python
+```
+```
 sudo apt install python-is-python3
+```
 
 ### Same for pip
+```
 sudo apt install -y python3-pip
+```
+```
 sudo ln -s /usr/bin/pip3 /usr/bin/pip
+```
 
 
 
