@@ -74,10 +74,17 @@ $ sudo update-alternatives --config python3
 sudo update-alternatives --remove python3 /usr/bin/python3.9
 ```
 
-#### restore the old (defulat) symlink of python3
+#### remove all alternatives
 ```
-sudo rm -rf /usr/bin/python3 && sudo ln -s /usr/bin/python3.6 /usr/bin/python3
+sudo update-alternatives --remove-all python
 ```
+
+#### restore the old (default) symlink of python3
+```
+sudo rm -rf /usr/bin/python3 && sudo ln -s /usr/bin/python3.9 /usr/bin/python3
+```
+
+##### python3.9 > python3 | python3 > python
 
 
 ### remove python 2 - simulate
@@ -104,9 +111,53 @@ sudo apt-get autoremove --purge
 sudo ln -s /usr/bin/python2.7 /usr/bin/python
 ```
 
+#### remove your make altinstall-ed python
+```
+rm -f /usr/local/bin/python2.7
+rm -f /usr/local/bin/pip2.7
+rm -f /usr/local/bin/pydoc
+rm -rf /usr/local/bin/include/python2.7
+rm -f /usr/local/lib/libpython2.7.a
+rm -rf /usr/local/lib/python2.7
+```
+##### You might also have to do
+```
+rm -f /usr/local/share/man/python2.7.1
+rm -rf /usr/local/lib/pkgconfig
+rm -f /usr/local/bin/idle
+rm -f /usr/local/bin/easy_install-2.7
+```
 
+```
+prefix='/usr/local/'
+pyver='3.6'
 
-
+rm -rf \
+    $HOME/.local/lib/Python${pyver} \
+    ${prefix}bin/python${pyver} \
+    ${prefix}bin/python${pyver}-config \
+    ${prefix}bin/pip${pyver} \
+    ${prefix}bin/pydoc \
+    ${prefix}bin/include/python${pyver} \
+    ${prefix}lib/libpython${pyver}.a \
+    ${prefix}lib/python${pyver} \
+    ${prefix}bin/python${pyver} \
+    ${prefix}bin/pip${pyver} \
+    ${prefix}bin/include/python${pyver} \
+    ${prefix}lib/libpython${pyver}.a \
+    ${prefix}lib/python${pyver} \
+    ${prefix}lib/pkgconfig/python-${pyver}.pc \
+    ${prefix}lib/libpython${pyver}m.a \
+    ${prefix}bin/python${pyver}m \
+    ${prefix}bin/2to3-${pyver} \
+    ${prefix}bin/python${pyver}m-config \
+    ${prefix}bin/idle${pyver} \
+    ${prefix}bin/pydoc${pyver} \
+    ${prefix}bin/pyvenv-${pyver} \
+    ${prefix}share/man/man1/python${pyver}.1 \
+    ${prefix}include/python${pyver}m
+rm -rI ${prefix}bin/pydoc ## WARN: skip if other pythons in local exist.
+```
 
 ### always 
 python -m pip install <>
